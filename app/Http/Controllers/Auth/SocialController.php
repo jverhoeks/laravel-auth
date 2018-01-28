@@ -10,8 +10,10 @@ use App\Traits\ActivationTrait;
 use App\Traits\CaptureIpTrait;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 use jeremykenedy\LaravelRoles\Models\Role;
 use Laravel\Socialite\Facades\Socialite;
+
 
 class SocialController extends Controller
 {
@@ -22,8 +24,9 @@ class SocialController extends Controller
         $providerKey = Config::get('services.'.$provider);
 
         if (empty($providerKey)) {
-            return view('pages.status')
-                ->with('error', trans('socials.noProvider'));
+            Session::flash('error',trans('socials.noProvider'));
+            return view('pages.status', ['error' => trans('socials.noProvider')]);
+                    //  ->with('error', trans('socials.noProvider'));
         }
 
         return Socialite::driver($provider)->redirect();

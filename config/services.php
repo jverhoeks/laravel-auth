@@ -53,23 +53,23 @@ return [
         'redirect'      => env('GOOGLE_REDIRECT'),
     ],
 
-    'github' => [
-        'client_id'     => env('GITHUB_ID'),
-        'client_secret' => env('GITHUB_SECRET'),
-        'redirect'      => env('GITHUB_REDIRECT'),
-    ],
-
-    'youtube' => [
-        'client_id'     => env('YOUTUBE_KEY'),
-        'client_secret' => env('YOUTUBE_SECRET'),
-        'redirect'      => env('YOUTUBE_REDIRECT_URI'),
-    ],
-
-    'twitch' => [
-        'client_id'     => env('TWITCH_KEY'),
-        'client_secret' => env('TWITCH_SECRET'),
-        'redirect'      => env('TWITCH_REDIRECT_URI'),
-    ],
+    // 'github' => [
+    //     'client_id'     => env('GITHUB_ID'),
+    //     'client_secret' => env('GITHUB_SECRET'),
+    //     'redirect'      => env('GITHUB_REDIRECT'),
+    // ],
+    //
+    // 'youtube' => [
+    //     'client_id'     => env('YOUTUBE_KEY'),
+    //     'client_secret' => env('YOUTUBE_SECRET'),
+    //     'redirect'      => env('YOUTUBE_REDIRECT_URI'),
+    // ],
+    //
+    // 'twitch' => [
+    //     'client_id'     => env('TWITCH_KEY'),
+    //     'client_secret' => env('TWITCH_SECRET'),
+    //     'redirect'      => env('TWITCH_REDIRECT_URI'),
+    // ],
 
     'instagram' => [
         'client_id'     => env('INSTAGRAM_KEY'),
@@ -77,10 +77,10 @@ return [
         'redirect'      => env('INSTAGRAM_REDIRECT_URI'),
     ],
 
-    '37signals' => [
-        'client_id'     => env('37SIGNALS_KEY'),
-        'client_secret' => env('37SIGNALS_SECRET'),
-        'redirect'      => env('37SIGNALS_REDIRECT_URI'),
-    ],
+    // '37signals' => [
+    //     'client_id'     => env('37SIGNALS_KEY'),
+    //     'client_secret' => env('37SIGNALS_SECRET'),
+    //     'redirect'      => env('37SIGNALS_REDIRECT_URI'),
+    // ],
 
 ];
