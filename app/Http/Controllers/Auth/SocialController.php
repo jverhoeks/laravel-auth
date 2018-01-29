@@ -24,9 +24,9 @@ class SocialController extends Controller
         $providerKey = Config::get('services.'.$provider);
 
         if (empty($providerKey)) {
-            Session::flash('error',trans('socials.noProvider'));
-            return view('pages.status', ['error' => trans('socials.noProvider')]);
-                    //  ->with('error', trans('socials.noProvider'));
+            return redirect()->to('login')
+                ->with('status', 'danger')
+                ->with('message', trans('socials.noProvider'));
         }
 
         return Socialite::driver($provider)->redirect();

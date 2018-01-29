@@ -125,3 +125,12 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
     Route::get('routes', 'AdminDetailsController@listRoutes');
     Route::get('active-users', 'AdminDetailsController@activeUsers');
 });
+
+// Custom Routes
+Route::post('/send', 'EmailController@send');
+Route::get('/send', 'EmailController@send');
+Route::get('/send2', 'EmailController@send2');
+
+
+Route::get('my-emailtemplates', 'EmailTemplatesController@myEmailTemplates');
+Route::resource('emailtemplates','EmailTemplatesController');
