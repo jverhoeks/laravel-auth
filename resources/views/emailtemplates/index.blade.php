@@ -1,47 +1,38 @@
-@extends('emailtemplates.master')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h3>Simple laravel CRUD with resource controller</h3>
-    </div>
+     <a href="{{url('/create/emailtemplate')}}" class="btn btn-success">Create Email-Template</a>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="pull-right">
-        <a class="btn btn-xs btn-success" href="{{ route('emailtemplates.create') }}">Create New emailtemplate</a>
-      </div>
-    </div>
-  </div>
-  @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-      <p>{{ $message }}</p>
-    </div>
-  @endif
-
-  <table class="table table-bordered">
-    <tr>
-      <th>No.</th>
-      <th>Title</th>
-      <th>Body</th>
-      <th width="300px">Actions</th>
-    </tr>
-
-    @foreach ($emailtemplates as $emailtemplate)
-      <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $emailtemplate->title }}</td>
-        <td>{{ $emailtemplate->body }}</td>
-        <td>
-          <a class="btn btn-xs btn-info" href="{{ route('emailtemplates.show', $emailtemplate->id) }}">Show</a>
-          <a class="btn btn-xs btn-primary" href="{{ route('emailtemplates.edit', $emailtemplate->id) }}">Edit</a>
-
-          {!! Form::open(['method' => 'DELETE', 'route'=>['emailtemplates.destroy', $emailtemplate->id], 'style'=> 'display:inline']) !!}
-          {!! Form::submit('Delete',['class'=> 'btn btn-xs btn-danger']) !!}
-          {!! Form::close() !!}
-        </td>
-      </tr>
-    @endforeach
-  </table>
-  {!! $emailtemplates->links() !!}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <td>ID</td>
+              <td>Name</td>
+              <td>Subject</td>
+              <td>Content</td>
+              <td colspan="2">Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($emailtemplates as $emailtemplate)
+            <tr>
+                <td>{{$emailtemplate->id}}</td>
+                <td>{{$emailtemplate->name}}</td>
+                <td>{{$emailtemplate->subject}}</td>
+                <td>{{$emailtemplate->content}}</td>
+                <td><a href="{{action('EmailTemplateController@edit',$emailtemplate->id)}}" class="btn btn-primary">Edit</a></td>
+                <td>
+                    <form action="{{action('EmailTemplateController@destroy', $emailtemplate->id)}}" method="post">
+                    {{csrf_field()}}
+                    <input name="_method" type="hidden" value="DELETE">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+<div>
 @endsection

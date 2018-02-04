@@ -32,6 +32,7 @@
                             <li {{ Request::is('php') ? 'class=active' : null }}>{!! HTML::link(url('/php'), Lang::get('titles.adminPHP')) !!}</li>
                             <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/routes'), Lang::get('titles.adminRoutes')) !!}</li>
                             <li {{ Request::is('active-users') ? 'class=active' : null }}>{!! HTML::link(url('/active-users'), Lang::get('titles.activeUsers')) !!}</li>
+                            <li {{ Request::is('emailtemplates') ? 'class=active' : null }}>{!! HTML::link(url('/emailtemplates'), Lang::get('emailtemplates.index')) !!}</li>
                         </ul>
                     </li>
                 @endrole

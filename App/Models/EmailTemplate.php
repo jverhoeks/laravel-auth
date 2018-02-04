@@ -24,4 +24,25 @@ class EmailTemplate extends Model
 
         return $parsed;
     }
+
+    public function saveEmailTemplate($data)
+    {
+
+            $this->name = $data['name'];
+            $this->subject = $data['subject'];
+            $this->content = $data['content'];
+
+            $this->save();
+            return 1;
+    }
+
+    public function updateEmailTemplate($data)
+    {
+            $emailtemplate = $this->find($data['id']);
+            $emailtemplate->name      = $data['name'];
+            $emailtemplate->subject = $data['subject'];
+            $emailtemplate->content = $data['content'];
+            $emailtemplate->save();
+            return 1;
+    }
 }

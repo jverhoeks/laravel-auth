@@ -131,6 +131,9 @@ Route::post('/send', 'EmailController@send');
 Route::get('/send', 'EmailController@send');
 Route::get('/send2', 'EmailController@send2');
 
-
-Route::get('my-emailtemplates', 'EmailTemplatesController@myEmailTemplates');
-Route::resource('emailtemplates','EmailTemplatesController');
+Route::get('/create/emailtemplate','EmailTemplateController@create');
+Route::post('/create/emailtemplate','EmailTemplateController@store');
+Route::get('/emailtemplates', 'EmailTemplateController@index');
+Route::get('/edit/emailtemplate/{id}','EmailTemplateController@edit');
+Route::post('/edit/emailtemplate/{id}','EmailTemplateController@update');
+Route::delete('/delete/emailtemplate/{id}','EmailTemplateController@destroy');
